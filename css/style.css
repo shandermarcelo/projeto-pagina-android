@@ -1,0 +1,177 @@
+@charset "UTF-8"; /*regra que garante compatibidade com acentuações*/
+
+@font-face { /*uso de uma fonte externa que foi baixada*/
+    font-family: "Android"; /*nome da fonte que sera usado quando ela for chamada no estilo*/
+    src: url(../font/idroid.otf); format:('opentype'); /*src url é onde declaramos a localizada do arquivo da fonte. format é onde declaramos qual é a extensão da fonte, o tipo do arquivo*/
+    font-weight: normal; /*aqui definimos se a fonte vai usar efeito negrito naturalmente*/
+    font-style: normal; /*aqui definimos se a fonte vai usar o estilo de fonte italica naturalmente*/
+}
+
+@font-face {
+    font-family: "Bebas";
+    src: url(../font/BebasNeue-Regular.ttf); format:('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root { /*pseudo classe onde nos podemos guardar valorez para uso global*/
+    --corred: red; /*para desenvolver um valor coloque -- e junto destes coloque o nome do valor, que seria uma variavel, apos isso coloque : que é onde nos colocamos o conteudo em si, apos colocalo finalize com ;*/
+    --cordred:  darkred;
+    --corblue: blue;
+    --cordblue: darkblue;
+    --cororange: orange;
+    --cordorange: darkorange;
+
+    --fonteandroid: Android, sans-serif;
+    --fontebebas: Bebas, sans-serif;
+}
+* { /*seletor global onde os estilos declaramos seram implementados em todos os estilos que a folha de estilo estiver*/
+    padding: 0px; /*padding 0 e margin 0 retira valores padrões que os elementos possuem, isso te dara mais poder sob seu projeto*/
+    margin: 0px;
+}
+
+body {
+    background-color: darkblue;
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cordred), var(--corred)); /*background image com linear gradient é um estilo que nos permite usar um fondo que possua nomocromia, degrade que é quando usamos uma cor que possui outros tons de si mesma, tons mais claros ou mais escuros. to bottom é a direção para onde o efeito sera exibido, no caso vai ser de cima para baixo com , separando a direção do conteudo, que seram as cores e var é como nos usamos as variaveis do root, coloque var(--variavel) para usar*/
+    min-height: 200px; /*almenta a autura da area de header, com sua largura se adaptando automaticamente*/
+    padding-top: 20px; /*afasta os conteudos do topo da página*/
+}
+
+header > h1 { /*estilo de afiliação, isso quer dizer estilize o h1 que esta aninhado no header*/
+    text-align: center; /* coloca o conteudo no meio*/
+    font-family: var(--fontebebas); /*usa a variavel que tem a fonte externa*/
+    font-size: 3em; /*define o tamanho da fonte*/
+    color: white;
+    font-weight: normal; /*se vai ou não ter efeito de negrito*/
+    padding: 10px; /*preenchimento interno do conteudo*/
+    margin-bottom: 20px; /*separa o conteudo dos outros conteudos */
+}
+
+header p { /*declaração que diz estilize o elemento p que esta aninhado em algum lugar do header*/
+    max-width: 800px; /*declarando max width nós podemos delimitar a area de ocupação do nosso conteudo, max width é onde colocamos até onde nosso conteudo vai se alargar min width seria de onde nosso conteudo vai começar a se alargar  */
+    margin: auto;
+    font-size: 1.2em;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+nav {
+    background-color: var(--corred);
+    padding: 10px;
+}
+
+nav > a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: 5px;
+    transition-duration: 1s;
+}
+
+nav > a:hover {
+    background-color: darkred;
+    border-radius: 5px;
+    padding: 10px;
+    color: red;
+}
+
+main {
+    background-color: white;
+    max-width: 1200px;
+    margin: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+article > h1 {
+    padding: 10px;
+    font-family: var(--fonteandroid);
+    font-weight: normal;
+    font-size: 1.8em;
+    color: var(--corblue);
+    margin-bottom: 10px;
+}
+
+p {
+    text-indent: 30px;
+    text-align: justify;
+    line-height: 18px;
+    padding: 10px;
+}
+
+img {
+    width: 100%; /*faz com que as imagens ocupem em porcentagens a area aonde elas estejam aninhadas e não vazem para fora*/
+}
+
+.imgbugdroid {
+    max-width: 300px; /*gambiarra como a imagem é pequena demais o estilo width 100% estraga a imagem por isso coloque uma largura maxima menor (que esteja diacordo com as dimenções da imagem para nãoe stragala)*/
+    display: block; /*quando você define uma dimenção para um elemento que tem o display inline, o mesmo troca o display para inline block por causa disso, portanto declare o display como block assim a centralização sera possivel atraves da margin.*/
+    margin: auto; /*isso vai centralizar a imagem, que tendo display block ocupa toda a largura de onde ela esteja*/
+}
+
+article > h2 {
+    background-image: linear-gradient(to right, var(--corred), transparent); /*degrade para transparencia gera um efeito legal*/
+    padding: 10px;
+    font-family: var(--fonteandroid);
+    font-weight: normal;
+    font-size: 1.5em;
+    color: var(--corblue);
+}
+
+div.semiresponsivevideo {
+    position: relative;
+    background-color: black;
+    padding: 10px;
+    padding-bottom: 57%;
+    margin: 0px 0px 10px 0px;
+}
+
+div.semiresponsivevideo > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cororange);
+    border-radius: 10px;
+}
+
+aside > h3 {
+    background-color: var(--cordorange);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    font-size: 1.3em;
+    color: white;
+}
+
+aside ul {
+    list-style-position: inside;
+    list-style-type: none;
+    padding-left: 5px;
+    columns: 2;
+}
+
+footer {
+    background-color: var(--cordred);
+    margin-top: 20px;
+}
+
+footer > p {
+    text-align: center;
+    color: white;
+    font-size: 1.1em;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}
